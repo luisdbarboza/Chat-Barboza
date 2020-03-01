@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- HECHO POR LUIS BARBOZA, >;)  -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat vergatario</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <!-- ICONOS DE FONT AWESOME -->
+    <link rel="stylesheet" href="fontawesome-free-5.12.1-web/css/all.css">
+    <!-- FUENTES DE GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"></head>
+<body>
+
+    <!--PARA DESPUES, HACE QUE SIEMPRE INICIE AL FINAL DE LA CONVERSACION <------------------------- -->
+    <a href="#ultimo"></a>
+
+    <!-- CONTENEDOR GRID PADRE  -->
+    <div class="contendedor-prin-chat">
+        <!-- BARRA LATERAL DE CONTACTOS -->
+        <div class="contactos">
+
+            <!-- CAJA DE TEXTO PARA BUSCAR USUARIOS CONECTADOS -->
+            <div class="usuariosConectados">
+                <p>Usuarios conectados: 0</p>
+            </div>
+
+            <!-- GRID LISTA DE USUARIOS CONECTADOS -->
+            <div class="listaConectados" id="lista-contactos">
+                
+            </div>
+        </div>
+
+
+        <!-- GRID CON LA CONVERSACION Y LOS INPUTS -->
+        <div class="conversacion">
+            <div class="notificaciones">
+                <p id="notificacion"></p>
+            </div>
+
+            <!-- GRID PARA AGREGAR MENSAJES DINAMICAMENTE -->
+
+            <!-- CAJA DE MENSAJE DE USUARIO EMISOR O RECEPTOR -->
+            <div class="mensajes">
+                
+            </div>
+
+            
+            <form action="/" class="input-mensaje" method="post" enctype="multipart/form-data">
+
+                <!-- CAJA PARA SELECCIONAR EMOTICONES -->
+                <div hidden class="box-emoticones">
+                    
+                </div>
+
+                <textarea placeholder="Escribe algo..." id="inputMensaje"></textarea>
+                
+                <label for="btn-emoticones" class="btn-emoticones">
+                    <div style="font-size: 3em; text-align: center;">
+                        <i class="far fa-smile-wink"></i>
+                    </div>
+                    <button type="button" hidden id="btn-emoticones"></button>
+                </label>
+
+                <label for="adjuntar" class="adjuntar">
+                    <div style="font-size: 3em; text-align: center;">
+                        <i class="fa fa-file" aria-hidden="true"></i>
+                    </div>
+                    <input hidden type="file" id="adjuntar">
+                </label>
+
+                <label for="btn-enviar" class="btn-enviar">
+                    <div style="font-size: 3em; text-align: center;">
+                        <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                    </div>
+                    <input type="submit" hidden id="btn-enviar">
+                </label>
+            </form>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,439 @@
+body
+{
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    text-align: justify;
+    font-family: 'Roboto';
+}
+
+/*MODIFICA LA BARRA DE DESPLAZAMIENTO*/
+
+/*propiedad para el ancho, jaja W3schools baby*/
+::-webkit-scrollbar {
+    width: 20px;
+}
+
+/* barra total de contenedor*/
+::-webkit-scrollbar-track {
+    background:darkslategray;
+}
+
+/*Boton para arrastrar*/
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/*------------------------------PANTALLA CHAT-------------------------------------*/
+.contendedor-prin-chat
+{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+
+.contactos
+{
+    display: grid;
+    grid-template-rows: 1fr 8fr;
+}
+
+/* contendor para buscar contactos*/
+.buscar-contactos
+{
+    display: grid;
+    border: none;
+    grid-template-columns: 8fr 2fr;
+}
+
+#buscar-texto
+{
+    border: none;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    background-color: lightgray;
+}
+
+.usuariosConectados
+{
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    font-size: 2em;
+    text-align: center;
+    border-bottom: 5px solid rgba(0, 0, 0, .2);
+}
+
+
+.contactos
+{
+    display: grid;
+    background-color: black;
+    grid-auto-rows: 1fr;
+    border-right: 2px solid black;
+    overflow: hidden;
+}
+
+.listaConectados
+{
+    overflow-y: scroll;
+}
+
+.listaConectados::-webkit-scrollbar {
+    width: 0px;
+}
+
+/* 
+.lista-contactos::-webkit-scrollbar-track {
+    background:rgba(0, 0, 0, 0);
+}
+
+.lista-contactos::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0);
+} */
+
+.conversacion
+{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.5fr 8fr 1fr;
+    background-color: #4D89E8;
+    overflow: hidden;/*Hace que se oculte lo que sobrepase el tamano del contenedor*/
+}
+
+/* Muestra si los usuarios estan escribiendo o si se han desconectado*/
+.notificaciones{
+    background-color: #E1007F;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+}
+
+/* contenedor para mensajes enviados*/
+.mensajes
+{
+    display: grid;
+    grid-gap: 20px;
+    overflow-y: scroll;
+    grid-template-rows: repeat(5, 1fr);
+}
+
+/* MENSAJE INDIVIDUAL*/
+.msg-item-enviado
+{
+    position: relative;
+    display: grid;
+    grid-template-areas: "logo-user mensaje";
+    grid-template-columns: 0.5fr 4fr;
+    width: 80%;
+    animation-name: subirMensaje;
+    animation-duration: 2s;
+}
+
+@keyframes subirMensaje
+{
+    0%
+    {
+        top: 50px;
+    }
+    100%
+    {
+        top: 0px;
+    }
+}
+
+.usuario
+{
+    grid-area: logo-user;
+    font-size: 3em; 
+    text-align: center; 
+    color: white;
+    border: none;
+    background-color: lightblue;
+}
+
+.usuario .fa-user
+{
+    padding: 10px;
+    background-color: darkslateblue;
+    border-radius: 50%;
+}
+
+.usuario p
+{
+    font-size: .5em;
+}
+
+.msg-text-e
+{
+    grid-area: mensaje;
+    background-color: #7A9DD4;
+    border-left: 3px solid darkblue;
+    padding: 20px;
+}
+
+.msg-text-e p 
+{
+    color: white;
+}
+
+.msg-item-recibido
+{
+    display: grid;
+    grid-template-areas: "mensaje logo-user ";
+    grid-template-columns:  4fr 0.5fr;
+    width: 80%;
+    margin-left: auto;
+}
+
+.msg-text-r
+{
+    grid-area: mensaje;
+    background-color: #0951C5;
+    text-align: right;
+    padding: 20px;
+    border-right: 3px solid darkblue;
+}
+
+.msg-text-r p
+{
+    color: white;
+}
+
+.img-mensaje
+{
+    border: none;
+    border-radius: 10px;
+    background-color: white;
+    padding: 5px;
+}
+
+/*estilos para los emojis*/
+
+span.emoji {
+    color: yellow;
+    font-size: 3em;
+}
+
+/*caja-input*/
+
+.input-mensaje
+{
+    display: grid;
+    grid-template-columns: 8fr 2fr 2fr 2fr;
+    background-color: white;
+    border-top: 2px solid black;
+    overflow: hidden;
+}
+
+.box-emoticones
+{
+    gap: 10px;
+    background-color: gray;
+    color: yellow;
+    grid-auto-rows: 1fr;
+    grid-template-columns: repeat(10, 1fr);
+    font-size: 3em;
+    overflow-y: scroll;
+}
+
+.box-emoji:hover
+{
+    cursor: pointer;
+    background-color: darkslategray;
+}
+
+.error-form
+{
+    border: 2px solid red;
+    color: #219C00;
+    font-weight: bold;
+}
+
+.adjuntar
+{
+    background-color: darkslategray;
+    color: white;
+    width: 100%;
+    height: 100%;
+}
+
+.adjuntar:hover
+{
+    cursor: pointer;
+    animation-name: btn-adjuntar;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes btn-adjuntar
+{
+    100%
+    {
+        background-color: gray;
+        color: black;
+    }
+}
+
+.input-mensaje textarea
+{
+    resize: none;
+}
+
+.btn-enviar
+{
+    background-color: #219C00;
+    color: white;
+    width: 100%;
+    height: 100%;
+}
+
+
+.btn-enviar:hover
+{
+    cursor: pointer;    
+    animation-name: btn-enviar;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes btn-enviar
+{
+    100%
+    {
+        background-color: green;
+        color: yellow;
+    }
+}
+
+.btn-emoticones
+{
+    background-color: yellowgreen;
+    width: 100%;
+    height: 100%;
+}
+
+.btn-emoticones:hover
+{
+    cursor: pointer;  
+    animation-name: btn-emoticones;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;  
+}
+
+@keyframes btn-emoticones
+{
+    100%
+    {
+        background-color: black;
+        color: yellow;
+    }
+}
+
+/* CAJA DE USUARIOS CONECTADOS*/
+
+.caja-us-conectado
+{
+    position: relative;
+    display: grid;
+    grid-auto-rows: 1fr;
+    height: max-content;
+    background-color: blueviolet;
+    border-bottom: 5px solid darkblue;
+    animation-name: usuarioConectado;
+    animation-duration: 2s;
+}
+
+@keyframes usuarioConectado
+{
+    0%
+    {
+        top: 50px;
+    }
+    100%
+    {
+        top: 0px;
+    }
+}
+
+.caja-us-conectado:hover
+{
+    cursor: pointer;
+    background-color: darkviolet;
+}
+
+
+.us-conectado
+{
+    font-size: 3em; 
+    text-align: center; 
+    color: white;
+    border: none;
+}
+
+.us-conectado p
+{
+    font-size: .5em;
+}
+
+.us-conectado .fa-user
+{
+    border-radius: 50%;
+    border: 1px solid white;
+    padding: 10px;
+    background-color: darkslategrey;
+}
+
+
+.caja-us-conectado:hover .us-conectado .fa-user
+{
+    background-color: black;
+}
+
+.user-info
+{
+    display: grid;
+    grid-template-areas: 'notificacion ultimo-mensaje';
+    grid-template-rows: 7fr 1fr;
+}
+
+.ultimo-mensaje
+{
+    grid-area: ultimo-mensaje;
+    color: #fff;
+    text-align: center;
+}
+
+#notificacion
+{
+    color: white;
+    font-size: 1em;
+}
+
+/* MEDIA QUERIES*/
+
+
+@media (max-width: 600px)
+{
+    .usuariosConectados
+    {
+        font-size: 0.5em;
+    }
+
+    .us-conectado
+    {
+        font-size: 1em;
+    }
+
+    .notificaciones
+    {
+        font-size: 0.7em;
+    }
+
+    .input-mensaje
+    {
+        font-size: 1em;
+    }
+}
